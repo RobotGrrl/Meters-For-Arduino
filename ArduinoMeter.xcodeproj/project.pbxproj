@@ -1,0 +1,395 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		B64750DF13F8C67F00B55851 /* Matatino.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B64750DE13F8C67F00B55851 /* Matatino.framework */; };
+		B64750E013F8C68800B55851 /* Matatino.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = B64750DE13F8C67F00B55851 /* Matatino.framework */; };
+		B649D52D13F0D5990063CB45 /* MeterWindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = B649D52C13F0D5990063CB45 /* MeterWindow.xib */; };
+		B649D53113F0D5DE0063CB45 /* MeterView.m in Sources */ = {isa = PBXBuildFile; fileRef = B649D53013F0D5DE0063CB45 /* MeterView.m */; };
+		B692579513F353D400C2BD6E /* Sparkle.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B692579413F353D400C2BD6E /* Sparkle.framework */; };
+		B692579713F3541000C2BD6E /* Sparkle.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = B692579413F353D400C2BD6E /* Sparkle.framework */; };
+		B692579D13F379D500C2BD6E /* dsa_pub.pem in Resources */ = {isa = PBXBuildFile; fileRef = B692579C13F379D500C2BD6E /* dsa_pub.pem */; };
+		B69257A113F3881F00C2BD6E /* Icon.icns in Resources */ = {isa = PBXBuildFile; fileRef = B69257A013F3881F00C2BD6E /* Icon.icns */; };
+		B697433313F2D79800EC5EDF /* meter-bg.png in Resources */ = {isa = PBXBuildFile; fileRef = B697433113F2D79800EC5EDF /* meter-bg.png */; };
+		B697433413F2D79800EC5EDF /* border.png in Resources */ = {isa = PBXBuildFile; fileRef = B697433213F2D79800EC5EDF /* border.png */; };
+		B6A0F4E613F05B6900CCB20E /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B6A0F4E513F05B6900CCB20E /* Cocoa.framework */; };
+		B6A0F4F013F05B6900CCB20E /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = B6A0F4EE13F05B6900CCB20E /* InfoPlist.strings */; };
+		B6A0F4F213F05B6900CCB20E /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = B6A0F4F113F05B6900CCB20E /* main.m */; };
+		B6A0F4F613F05B6900CCB20E /* Credits.rtf in Resources */ = {isa = PBXBuildFile; fileRef = B6A0F4F413F05B6900CCB20E /* Credits.rtf */; };
+		B6A0F4F913F05B6900CCB20E /* ArduinoMeterAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = B6A0F4F813F05B6900CCB20E /* ArduinoMeterAppDelegate.m */; };
+		B6A0F4FC13F05B6A00CCB20E /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = B6A0F4FA13F05B6A00CCB20E /* MainMenu.xib */; };
+		B6A0F53313F0CB1000CCB20E /* MeterWindowController.m in Sources */ = {isa = PBXBuildFile; fileRef = B6A0F53213F0CB1000CCB20E /* MeterWindowController.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		B697432F13F24F7500EC5EDF /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				B692579713F3541000C2BD6E /* Sparkle.framework in CopyFiles */,
+				B64750E013F8C68800B55851 /* Matatino.framework in CopyFiles */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
+/* Begin PBXFileReference section */
+		B64750DE13F8C67F00B55851 /* Matatino.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Matatino.framework; path = Frameworks/Matatino.framework; sourceTree = "<group>"; };
+		B649D52C13F0D5990063CB45 /* MeterWindow.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MeterWindow.xib; sourceTree = "<group>"; };
+		B649D52F13F0D5DE0063CB45 /* MeterView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MeterView.h; sourceTree = "<group>"; };
+		B649D53013F0D5DE0063CB45 /* MeterView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MeterView.m; sourceTree = "<group>"; };
+		B692579413F353D400C2BD6E /* Sparkle.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Sparkle.framework; path = Frameworks/Sparkle.framework; sourceTree = "<group>"; };
+		B692579C13F379D500C2BD6E /* dsa_pub.pem */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = dsa_pub.pem; sourceTree = "<group>"; };
+		B69257A013F3881F00C2BD6E /* Icon.icns */ = {isa = PBXFileReference; lastKnownFileType = image.icns; path = Icon.icns; sourceTree = "<group>"; };
+		B697433113F2D79800EC5EDF /* meter-bg.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "meter-bg.png"; path = "../meter-bg.png"; sourceTree = "<group>"; };
+		B697433213F2D79800EC5EDF /* border.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = border.png; path = ../border.png; sourceTree = "<group>"; };
+		B6A0F4E113F05B6900CCB20E /* Meters for Arduino.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Meters for Arduino.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		B6A0F4E513F05B6900CCB20E /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
+		B6A0F4E813F05B6900CCB20E /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = System/Library/Frameworks/AppKit.framework; sourceTree = SDKROOT; };
+		B6A0F4E913F05B6900CCB20E /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
+		B6A0F4EA13F05B6900CCB20E /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		B6A0F4ED13F05B6900CCB20E /* ArduinoMeter-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "ArduinoMeter-Info.plist"; sourceTree = "<group>"; };
+		B6A0F4EF13F05B6900CCB20E /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		B6A0F4F113F05B6900CCB20E /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		B6A0F4F313F05B6900CCB20E /* ArduinoMeter-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "ArduinoMeter-Prefix.pch"; sourceTree = "<group>"; };
+		B6A0F4F513F05B6900CCB20E /* en */ = {isa = PBXFileReference; lastKnownFileType = text.rtf; name = en; path = en.lproj/Credits.rtf; sourceTree = "<group>"; };
+		B6A0F4F713F05B6900CCB20E /* ArduinoMeterAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ArduinoMeterAppDelegate.h; sourceTree = "<group>"; };
+		B6A0F4F813F05B6900CCB20E /* ArduinoMeterAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ArduinoMeterAppDelegate.m; sourceTree = "<group>"; };
+		B6A0F4FB13F05B6A00CCB20E /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/MainMenu.xib; sourceTree = "<group>"; };
+		B6A0F53113F0CB1000CCB20E /* MeterWindowController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MeterWindowController.h; sourceTree = "<group>"; };
+		B6A0F53213F0CB1000CCB20E /* MeterWindowController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MeterWindowController.m; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		B6A0F4DE13F05B6900CCB20E /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B6A0F4E613F05B6900CCB20E /* Cocoa.framework in Frameworks */,
+				B692579513F353D400C2BD6E /* Sparkle.framework in Frameworks */,
+				B64750DF13F8C67F00B55851 /* Matatino.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		B692579B13F379D500C2BD6E /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				B692579C13F379D500C2BD6E /* dsa_pub.pem */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		B692579E13F3803300C2BD6E /* Meter */ = {
+			isa = PBXGroup;
+			children = (
+				B649D52F13F0D5DE0063CB45 /* MeterView.h */,
+				B649D53013F0D5DE0063CB45 /* MeterView.m */,
+				B6A0F53113F0CB1000CCB20E /* MeterWindowController.h */,
+				B6A0F53213F0CB1000CCB20E /* MeterWindowController.m */,
+				B649D52C13F0D5990063CB45 /* MeterWindow.xib */,
+			);
+			name = Meter;
+			sourceTree = "<group>";
+		};
+		B692579F13F3804B00C2BD6E /* Graphics */ = {
+			isa = PBXGroup;
+			children = (
+				B69257A013F3881F00C2BD6E /* Icon.icns */,
+				B697433113F2D79800EC5EDF /* meter-bg.png */,
+				B697433213F2D79800EC5EDF /* border.png */,
+			);
+			name = Graphics;
+			sourceTree = "<group>";
+		};
+		B6A0F4D613F05B6900CCB20E = {
+			isa = PBXGroup;
+			children = (
+				B692579B13F379D500C2BD6E /* Resources */,
+				B6A0F4EB13F05B6900CCB20E /* ArduinoMeter */,
+				B6A0F4E413F05B6900CCB20E /* Frameworks */,
+				B6A0F4E213F05B6900CCB20E /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		B6A0F4E213F05B6900CCB20E /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				B6A0F4E113F05B6900CCB20E /* Meters for Arduino.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		B6A0F4E413F05B6900CCB20E /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				B64750DE13F8C67F00B55851 /* Matatino.framework */,
+				B692579413F353D400C2BD6E /* Sparkle.framework */,
+				B6A0F4E513F05B6900CCB20E /* Cocoa.framework */,
+				B6A0F4E713F05B6900CCB20E /* Other Frameworks */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		B6A0F4E713F05B6900CCB20E /* Other Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				B6A0F4E813F05B6900CCB20E /* AppKit.framework */,
+				B6A0F4E913F05B6900CCB20E /* CoreData.framework */,
+				B6A0F4EA13F05B6900CCB20E /* Foundation.framework */,
+			);
+			name = "Other Frameworks";
+			sourceTree = "<group>";
+		};
+		B6A0F4EB13F05B6900CCB20E /* ArduinoMeter */ = {
+			isa = PBXGroup;
+			children = (
+				B6A0F4F713F05B6900CCB20E /* ArduinoMeterAppDelegate.h */,
+				B6A0F4F813F05B6900CCB20E /* ArduinoMeterAppDelegate.m */,
+				B6A0F4FA13F05B6A00CCB20E /* MainMenu.xib */,
+				B692579E13F3803300C2BD6E /* Meter */,
+				B692579F13F3804B00C2BD6E /* Graphics */,
+				B6A0F4EC13F05B6900CCB20E /* Supporting Files */,
+			);
+			path = ArduinoMeter;
+			sourceTree = "<group>";
+		};
+		B6A0F4EC13F05B6900CCB20E /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				B6A0F4ED13F05B6900CCB20E /* ArduinoMeter-Info.plist */,
+				B6A0F4EE13F05B6900CCB20E /* InfoPlist.strings */,
+				B6A0F4F113F05B6900CCB20E /* main.m */,
+				B6A0F4F313F05B6900CCB20E /* ArduinoMeter-Prefix.pch */,
+				B6A0F4F413F05B6900CCB20E /* Credits.rtf */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		B6A0F4E013F05B6900CCB20E /* ArduinoMeter */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = B6A0F4FF13F05B6A00CCB20E /* Build configuration list for PBXNativeTarget "ArduinoMeter" */;
+			buildPhases = (
+				B6A0F4DD13F05B6900CCB20E /* Sources */,
+				B6A0F4DE13F05B6900CCB20E /* Frameworks */,
+				B6A0F4DF13F05B6900CCB20E /* Resources */,
+				B697432F13F24F7500EC5EDF /* CopyFiles */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = ArduinoMeter;
+			productName = ArduinoMeter;
+			productReference = B6A0F4E113F05B6900CCB20E /* Meters for Arduino.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		B6A0F4D813F05B6900CCB20E /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				ORGANIZATIONNAME = robotgrrl.com;
+			};
+			buildConfigurationList = B6A0F4DB13F05B6900CCB20E /* Build configuration list for PBXProject "ArduinoMeter" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = B6A0F4D613F05B6900CCB20E;
+			productRefGroup = B6A0F4E213F05B6900CCB20E /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				B6A0F4E013F05B6900CCB20E /* ArduinoMeter */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		B6A0F4DF13F05B6900CCB20E /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B6A0F4F013F05B6900CCB20E /* InfoPlist.strings in Resources */,
+				B6A0F4F613F05B6900CCB20E /* Credits.rtf in Resources */,
+				B6A0F4FC13F05B6A00CCB20E /* MainMenu.xib in Resources */,
+				B649D52D13F0D5990063CB45 /* MeterWindow.xib in Resources */,
+				B697433313F2D79800EC5EDF /* meter-bg.png in Resources */,
+				B697433413F2D79800EC5EDF /* border.png in Resources */,
+				B692579D13F379D500C2BD6E /* dsa_pub.pem in Resources */,
+				B69257A113F3881F00C2BD6E /* Icon.icns in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		B6A0F4DD13F05B6900CCB20E /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B6A0F4F213F05B6900CCB20E /* main.m in Sources */,
+				B6A0F4F913F05B6900CCB20E /* ArduinoMeterAppDelegate.m in Sources */,
+				B6A0F53313F0CB1000CCB20E /* MeterWindowController.m in Sources */,
+				B649D53113F0D5DE0063CB45 /* MeterView.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		B6A0F4EE13F05B6900CCB20E /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				B6A0F4EF13F05B6900CCB20E /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		B6A0F4F413F05B6900CCB20E /* Credits.rtf */ = {
+			isa = PBXVariantGroup;
+			children = (
+				B6A0F4F513F05B6900CCB20E /* en */,
+			);
+			name = Credits.rtf;
+			sourceTree = "<group>";
+		};
+		B6A0F4FA13F05B6A00CCB20E /* MainMenu.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				B6A0F4FB13F05B6A00CCB20E /* en */,
+			);
+			name = MainMenu.xib;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		B6A0F4FD13F05B6A00CCB20E /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_32_64_BIT)";
+				CLANG_ENABLE_OBJC_ARC = YES;
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_MISSING_PROTOTYPES = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.7;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = macosx;
+			};
+			name = Debug;
+		};
+		B6A0F4FE13F05B6A00CCB20E /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_32_64_BIT)";
+				CLANG_ENABLE_OBJC_ARC = YES;
+				COPY_PHASE_STRIP = YES;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_MISSING_PROTOTYPES = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.7;
+				SDKROOT = macosx;
+			};
+			name = Release;
+		};
+		B6A0F50013F05B6A00CCB20E /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = YES;
+				CLANG_ENABLE_OBJC_ARC = NO;
+				CLANG_WARN_OBJCPP_ARC_ABI = NO;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)/Frameworks\"",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "ArduinoMeter/ArduinoMeter-Prefix.pch";
+				INFOPLIST_FILE = "ArduinoMeter/ArduinoMeter-Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "@loader_path/../Frameworks";
+				MACOSX_DEPLOYMENT_TARGET = 10.6;
+				PRODUCT_NAME = "Meters for Arduino";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Debug;
+		};
+		B6A0F50113F05B6A00CCB20E /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = YES;
+				CLANG_ENABLE_OBJC_ARC = NO;
+				CLANG_WARN_OBJCPP_ARC_ABI = NO;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)/Frameworks\"",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "ArduinoMeter/ArduinoMeter-Prefix.pch";
+				INFOPLIST_FILE = "ArduinoMeter/ArduinoMeter-Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "@loader_path/../Frameworks";
+				MACOSX_DEPLOYMENT_TARGET = 10.6;
+				PRODUCT_NAME = "Meters for Arduino";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		B6A0F4DB13F05B6900CCB20E /* Build configuration list for PBXProject "ArduinoMeter" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				B6A0F4FD13F05B6A00CCB20E /* Debug */,
+				B6A0F4FE13F05B6A00CCB20E /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		B6A0F4FF13F05B6A00CCB20E /* Build configuration list for PBXNativeTarget "ArduinoMeter" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				B6A0F50013F05B6A00CCB20E /* Debug */,
+				B6A0F50113F05B6A00CCB20E /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = B6A0F4D813F05B6900CCB20E /* Project object */;
+}
