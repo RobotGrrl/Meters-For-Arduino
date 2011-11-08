@@ -25,11 +25,14 @@
 
 #import <Cocoa/Cocoa.h>
 #import <Matatino/Matatino.h>
+#import "Wijourno.h"
 
-@interface ArduinoMeterAppDelegate : NSObject <NSApplicationDelegate, MatatinoDelegate> {
+@interface ArduinoMeterAppDelegate : NSObject <NSApplicationDelegate, MatatinoDelegate, WijournoDelegate> {
     
     // Window related
     NSWindow *_window;
+    IBOutlet NSWindow *popup;
+    IBOutlet NSButton *popupEnabled;
     IBOutlet NSPopUpButton *serialSelectMenu;
     IBOutlet NSButton *connectButton;
     IBOutlet NSButton *pinA0;
@@ -41,8 +44,12 @@
     
     // Vars
     Matatino *arduino;
+    Wijourno *wijourno;
     NSNumberFormatter *numFormatter;
     NSMutableArray *allMeters;
+    NSMutableDictionary *setupDict;
+    BOOL debug;
+    NSUserDefaults *userDefaults;
     
 }
 
@@ -50,9 +57,15 @@
 @property (nonatomic, retain) IBOutlet NSWindow *window;
 
 // Buttons
+- (IBAction) donePopupPressed:(id)sender;
+- (IBAction) learnMorePressed:(id)sender;
+- (IBAction) forIOSPressed:(id)sender;
 - (IBAction) connectPressed:(id)sender;
 - (IBAction) showPrefs:(id)sender;
 - (IBAction) launchWebsite:(id)sender;
+
+// Vars
+@property (nonatomic, retain) NSMutableDictionary *setupDict;
 
 // PortHandler
 - (void) sendData:(NSNumber *)pinNum value:(NSNumber *)pinValue;

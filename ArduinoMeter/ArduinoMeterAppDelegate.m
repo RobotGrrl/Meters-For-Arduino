@@ -11,21 +11,46 @@
 
 #import "ArduinoMeterAppDelegate.h"
 #import "MeterWindowController.h"
+#import "Wijourno_tags.h"
 
-@interface ArduinoMeterAppDelegate()
+#define SERVICE_NAME @"MetersForArduino"
+
+@interface ArduinoMeterAppDelegate (Private)
 - (void) setButtonsEnabled;
 - (void) setButtonsDisabled;
+- (void) sendInitialInfo;
+- (void) initWijourno;
+- (void) resetSetupDict;
+- (void) sendSetupData:(NSString *)clientName;
 @end
 
 @implementation ArduinoMeterAppDelegate
 
 @synthesize window = _window;
+@synthesize setupDict;
+
+- (void)dealloc
+{
+    [wijourno closeSocket];
+    [wijourno release];
+    [super dealloc];
+}
 
 - (void)applicationDidFinishLaunching:(NSNotification *)aNotification {
     
     // Init
+    [self initWijourno];
     arduino = [[Matatino alloc] initWithDelegate:self];
     allMeters = [[NSMutableArray alloc] initWithCapacity:6];
+    debug = NO;
+    userDefaults = [NSUserDefaults standardUserDefaults];
+    
+    // Setup Dict
+    setupDict = [[NSMutableDictionary alloc] initWithCapacity:7];
+    [self resetSetupDict];
+    
+    // Debug
+    [arduino setDebug:YES];
     
     // Setup the window
     [serialSelectMenu addItemsWithTitles:[arduino deviceNames]];
@@ -39,7 +64,42 @@
     numFormatter = [[NSNumberFormatter alloc] init];
     [numFormatter setNumberStyle:NSNumberFormatterDecimalStyle];
     
-    // TODO: Check here if they have any saved datum
+    if([userDefaults objectForKey:@"Version"] == nil) { // Then it is 1.0!
+        NSLog(@"1.0!");
+        [userDefaults setObject:[NSNumber numberWithFloat:1.1] forKey:@"Version"];
+        [userDefaults setBool:YES forKey:@"Popup"];
+    }
+    
+    BOOL toPopup = [userDefaults boolForKey:@"Popup"];
+    
+    if(toPopup) {
+        // TODO: Display popup here
+        [popup makeKeyAndOrderFront:self];
+    }
+    
+}
+
+- (void) initWijourno {
+    NSString *serverName = @"MetersServer";
+    NSMutableDictionary *serverInfo = [[NSMutableDictionary alloc] initWithCapacity:1];
+    [serverInfo setObject:serverName forKey:@"name"];
+    
+    wijourno =  [[Wijourno alloc] init];
+    wijourno.delegate = self;
+    [wijourno initServerWithServiceName:SERVICE_NAME dictionary:serverInfo];
+    
+    [serverInfo release];
+}
+
+- (void) resetSetupDict {
+    
+    [self.setupDict setObject:@"0" forKey:@"A0"];
+    [self.setupDict setObject:@"0" forKey:@"A1"];
+    [self.setupDict setObject:@"0" forKey:@"A2"];
+    [self.setupDict setObject:@"0" forKey:@"A3"];
+    [self.setupDict setObject:@"0" forKey:@"A4"];
+    [self.setupDict setObject:@"0" forKey:@"A5"];
+    [self.setupDict setObject:@"0" forKey:@"ArduinoConnected"];
     
 }
 
@@ -49,10 +109,25 @@
     
     // Safely disconnect
     [arduino disconnect];
+    [wijourno closeSocket];
     return NSTerminateNow;
 }
 
 #pragma mark - Buttons
+
+- (IBAction) donePopupPressed:(id)sender {
+    //NSLog([popupEnabled state] ? @"YES" : @"NO");
+    [userDefaults setBool:[popupEnabled state] forKey:@"Popup"];    
+    [popup close];
+}
+
+- (IBAction) learnMorePressed:(id)sender {
+    [[NSWorkspace sharedWorkspace] openURL:[NSURL URLWithString:@"http://robotgrrl.com/apps4arduino/meters.php"]];
+}
+
+- (IBAction) forIOSPressed:(id)sender {
+    [[NSWorkspace sharedWorkspace] openURL:[NSURL URLWithString:@"http://robotgrrl.com/apps4arduino/meters.php"]];
+}
 
 - (IBAction) connectPressed:(id)sender {
     
@@ -60,12 +135,33 @@
         
         if([arduino connect:[serialSelectMenu titleOfSelectedItem] withBaud:B115200]) {
             
-            if([pinA0 state] == NSOnState) [self createMeterWithPin:0 andName:@"Analog In - 0"];
-            if([pinA1 state] == NSOnState) [self createMeterWithPin:1 andName:@"Analog In - 1"];
-            if([pinA2 state] == NSOnState) [self createMeterWithPin:2 andName:@"Analog In - 2"];
-            if([pinA3 state] == NSOnState) [self createMeterWithPin:3 andName:@"Analog In - 3"];
-            if([pinA4 state] == NSOnState) [self createMeterWithPin:4 andName:@"Analog In - 4"];
-            if([pinA5 state] == NSOnState) [self createMeterWithPin:5 andName:@"Analog In - 5"];
+            if([pinA0 state] == NSOnState) {
+                [self createMeterWithPin:0 andName:@"Analog In - 0"];
+                [self.setupDict setObject:@"1" forKey:@"A0"];
+            }
+            if([pinA1 state] == NSOnState) {
+                [self createMeterWithPin:1 andName:@"Analog In - 1"];
+                [self.setupDict setObject:@"1" forKey:@"A1"];
+            }
+            if([pinA2 state] == NSOnState) {
+                [self createMeterWithPin:2 andName:@"Analog In - 2"];
+                [self.setupDict setObject:@"1" forKey:@"A2"];
+            }
+            if([pinA3 state] == NSOnState) {
+                [self createMeterWithPin:3 andName:@"Analog In - 3"];
+                [self.setupDict setObject:@"1" forKey:@"A3"];
+            }
+            if([pinA4 state] == NSOnState) {
+                [self createMeterWithPin:4 andName:@"Analog In - 4"];
+                [self.setupDict setObject:@"1" forKey:@"A4"];
+            }
+            if([pinA5 state] == NSOnState) {
+                [self createMeterWithPin:5 andName:@"Analog In - 5"];
+                [self.setupDict setObject:@"1" forKey:@"A5"];
+            }
+            
+            [self.setupDict setObject:@"1" forKey:@"ArduinoConnected"];
+            [wijourno sendCommand:SETUP dictionary:setupDict];
             
             [self setButtonsDisabled];
             [self.window orderOut:self];
@@ -80,6 +176,9 @@
         }
         
     } else { // Pressing Stop
+        
+        [self resetSetupDict];
+        [wijourno sendCommand:SETUP dictionary:setupDict];
         
         [arduino disconnect];
         [self setButtonsEnabled];
@@ -181,6 +280,9 @@
 
 - (void) portClosed {
     
+    [self resetSetupDict];
+    [wijourno sendCommand:SETUP dictionary:setupDict];
+    
     [self setButtonsEnabled];
     [self.window makeKeyAndOrderFront:self];
     
@@ -203,6 +305,14 @@
             [m refreshEverything];
             break;
         }
+    }
+
+    if(pinValue != nil) {
+        NSString *meterKey = [NSString stringWithFormat:@"pin%d", [pinNum intValue]];
+        NSMutableDictionary *meterDict = [[NSMutableDictionary alloc] initWithCapacity:1];
+        [meterDict setObject:[NSString stringWithFormat:@"%d", [pinValue intValue]] forKey:meterKey];
+        [wijourno sendCommand:TEXT dictionary:meterDict];
+        [meterDict release];
     }
     
 }
@@ -255,5 +365,62 @@
     }
 }
 
+
+#pragma mark - Wijourno Data
+
+- (void) sendInitialInfo {
+    
+    NSMutableDictionary *clientInfo = [[NSMutableDictionary alloc] initWithCapacity:1];
+    [clientInfo setObject:@"iMac" forKey:@"name"];
+    
+    [wijourno sendCommand:DATA dictionary:clientInfo];
+    [clientInfo release];
+}
+
+#pragma mark - Wijourno Delegate
+
+- (void) connectionStarted:(NSString *)host {
+    NSLog(@"We connected to host: %@", host);
+}
+
+- (void) connectionFinished:(NSString *)details {
+    NSLog(@"The connection finished: %@", details);
+}
+
+- (void) readTimedOut {
+    
+}
+
+- (void) didReadCommand:(NSString *)command dictionary:(NSDictionary *)dictionary isServer:(BOOL)isServer {
+    
+    if(debug) NSLog(@"The server received a command: %@ and dict: %@", command, dictionary);
+    
+    if([command isEqualToString:DATA]) {
+        if(debug) NSLog(@"It was data");
+        
+        NSString *clientName = [dictionary objectForKey:@"name"];
+        [self sendSetupData:clientName];
+        
+    } else if([command isEqualToString:SETUP]) {
+        if(debug) NSLog(@"It was setup");
+
+    } else if([command isEqualToString:ACTION]) {
+        if(debug) NSLog(@"It was an action");
+        
+    } else if([command isEqualToString:TEXT]) {
+        if(debug) NSLog(@"It was text");
+        
+    }
+    
+}
+
+- (void) sendSetupData:(NSString *)clientName {
+    
+    if(debug) NSLog(@"Sending setup data to: %@", clientName);
+    if(debug) NSLog(@"Setup dict: %@", setupDict);
+    
+    [wijourno sendCommand:SETUP dictionary:setupDict toClient:clientName];
+    
+}
 
 @end
